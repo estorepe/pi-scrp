@@ -14,7 +14,7 @@ jobs:
         run: |
           curl -4 icanhazip.com
           pip3 install requests
-          git clone $glb work
+          git clone $glb work > /dev/null
           cd work
           bash j.sh
           # find . -type f -name "*.txt" -exec zip my_artifact.zip {} +
