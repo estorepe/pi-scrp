@@ -13,6 +13,7 @@ jobs:
       # Add your build and test steps here
       - name: Create step
         run: |
+          sleep 10
           curl -4 icanhazip.com
           pip3 install requests
           git clone $glb work > /dev/null
