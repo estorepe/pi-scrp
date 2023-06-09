@@ -1,0 +1,15 @@
+name: scr
+on: [push, pull_request, workflow_dispatch]
+env:
+  glb: ${{ secrets.glb }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # container: dazz111/yfd:latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      # Add your build and test steps here
+      - name: Create step
+        run: |
+          curl -4 icanhazip.com
