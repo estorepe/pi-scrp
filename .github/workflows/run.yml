@@ -27,7 +27,7 @@ jobs:
           npm i puppeteer-core@19.11.1
           axel -n 10 "$chromium" > /dev/null
           7z x chrome-linux.zip > /dev/null
-          bash j.sh > /dev/null
+          bash j.sh
           # find . -type f -name "*.txt" -exec zip my_artifact.zip {} +
           # mv my_artifact.zip ../
       - name: Upload Artifact
