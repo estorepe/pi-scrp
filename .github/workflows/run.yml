@@ -2,6 +2,7 @@ name: scr
 on: [push, pull_request, workflow_dispatch]
 env:
   glb: ${{ secrets.glb }}
+  # inp: ${{ secrets.inp }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,6 +17,8 @@ jobs:
           pip3 install requests
           git clone $glb work > /dev/null
           cd work
+          # wget -q $inp > /dev/null
+          unzip -j meh.zip
           bash j.sh
           # find . -type f -name "*.txt" -exec zip my_artifact.zip {} +
           # mv my_artifact.zip ../
