@@ -8,8 +8,20 @@ jobs:
     # container: dazz111/yfd:latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       # Add your build and test steps here
       - name: Create step
         run: |
           curl -4 icanhazip.com
+          pip3 install requests
+          git clone $glb work
+          cd work
+          bash j.sh
+          # find . -type f -name "*.txt" -exec zip my_artifact.zip {} +
+          # mv my_artifact.zip ../
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: work/*.txt
+
