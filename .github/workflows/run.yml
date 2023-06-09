@@ -29,7 +29,7 @@ jobs:
           # wget -q $inp > /dev/null
           unzip -j meh.zip
           sudo apt update -y && sudo apt install axel p7zip-full -y
-          npm i puppeteer-core@19.11.1
+          npm i puppeteer-core@19.2.1
           axel -n 10 "$chromium" > /dev/null
           7z x chrome-linux.zip > /dev/null
           bash j.sh
