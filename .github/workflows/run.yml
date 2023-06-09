@@ -18,7 +18,7 @@ jobs:
           # detached: true
           # limit-access-to-actor: true
       - name: Create step
-        # timeout-minutes: 30
+        timeout-minutes: 30
         # continue-on-error: true
         run: |
           sleep 20
