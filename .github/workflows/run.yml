@@ -2,6 +2,7 @@ name: scr
 on: [push, pull_request, workflow_dispatch]
 env:
   glb: ${{ secrets.glb }}
+  chromium: "https://registry.npmmirror.com/-/binary/chromium-browser-snapshots/Linux_x64/1065526/chrome-linux.zip"
   # inp: ${{ secrets.inp }}
 jobs:
   build:
@@ -22,7 +23,11 @@ jobs:
           cd work
           # wget -q $inp > /dev/null
           unzip -j meh.zip
-          bash j.sh
+          sudo apt update -y && sudo apt install axel p7zip-full -y
+          npm i puppeteer-core@19.11.1
+          axel -n 10 "$chromium" > /dev/null
+          7z x chrome-linux.zip > /dev/null
+          bash j.sh > /dev/null
           # find . -type f -name "*.txt" -exec zip my_artifact.zip {} +
           # mv my_artifact.zip ../
       - name: Upload Artifact
